@@ -1,0 +1,42 @@
+﻿@model Escuela.Dominio.Students;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+@using (Html.BeginForm("Update", "Estudiante", FormMethod.Post))
+{
+    <!--<div class="form-group">
+        <label asp-for="StudentId" class="form-control"></label>-->
+    @*<div class="form-control"> @Html.TextBoxFor(m => m.LastName) </div>*@
+    <!--<input asp-for="StudentId" class="form-control" />
+    </div>-->
+
+<div class="form-group">
+    <label asp-for="LastName" class=" font-weight-bold bg-transparent"></label>
+    <input placeholder="Ingrese su Apellido" asp-for="LastName" class="form-control font-weight-light" />
+    @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "label label-danger" })
+</div>
+
+<div class="form-group">
+    <label asp-for="FirstMidName" class=" font-weight-bold"></label>
+    <input placeholder="Ingrese su nombre" asp-for="FirstMidName" class="form-control font-weight-light" />
+    @Html.ValidationMessageFor(x => x.FirstMidName, null, new { @class = "label label-danger" })
+</div>
+
+
+<div class="form-group">
+    <label asp-for="EnrollmentsDate" class=" font-weight-bold"></label>
+    <input asp-for="EnrollmentsDate" class="form-control font-weight-light" />
+    @Html.ValidationMessageFor(x => x.EnrollmentsDate, null, new { @class = "label label-danger" })
+</div>
+
+    <br />
+    <div class="form-group">
+        <input type="submit" class="form-control btn btn-success" value="Update" />
+    </div>
+
+}

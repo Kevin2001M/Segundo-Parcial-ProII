@@ -1,0 +1,61 @@
+﻿@model Escuela.Dominio.Students;
+
+<script src="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous"></script>
+
+@{
+}
+<link rel="stylesheet"
+      href="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js>" />
+
+<script src="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous"></script>
+
+
+@using (Html.BeginForm("Create", "Estudiante", FormMethod.Post))
+{
+    <!--<div class="form-group">
+        <label asp-for="StudentId" class="form-control"></label>-->
+    @*<div class="form-control"> @Html.TextBoxFor(m => m.LastName) </div>*@
+    <!--<input asp-for="StudentId" class="form-control" />
+    </div>-->
+
+    <div class="form-group">
+        <label asp-for="LastName" class=" font-weight-bold bg-transparent"></label>
+        <input placeholder="Ingrese su Apellido" asp-for="LastName" class="form-control font-weight-light" />
+        @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FirstMidName" class=" font-weight-bold"></label>
+        <input placeholder="Ingrese su nombre" asp-for="FirstMidName" class="form-control font-weight-light" />
+        @Html.ValidationMessageFor(x => x.FirstMidName, null, new { @class = "label label-danger" })
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="EnrollmentsDate" class=" font-weight-bold"></label>
+        <input asp-for="EnrollmentsDate" class="form-control font-weight-light" />
+        @Html.ValidationMessageFor(x => x.EnrollmentsDate, null, new { @class = "label label-danger" })
+    </div>
+
+    <br />
+    <div class="form-group">
+        <input type="submit" class="form-control btn btn-success" value="Save Student" />
+    </div>
+
+}
+
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+

@@ -1,0 +1,108 @@
+﻿@model List<Escuela.Dominio.Enrollment>;
+@{
+    ViewData["Title"] = "Tabla";
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<div class="form-group text-sm-center">
+    <table id="mitabla" class="table table-dark table-striped">
+        <thead>
+            <tr>
+
+                <th>
+                    Id Enrollment
+                </th>
+                <th>
+                    Student Id
+                </th>
+                <th>
+                    Course Id
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    FirsMidName
+                </th>
+                <th>
+                    Curso al que pertenece
+                </th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+
+                    <td>@i.EnrollmentId</td>
+                    <td>@i.StudentId</td>
+                    <td>@i.Course.CouserId</td>
+                    <td>@i.Students.LastName</td>
+                    <td>@i.Students.FirstMidName</td>
+                    <td>@i.Course.Title</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+
+<div class="form-group">
+    <button type="submit" class="btn btn-warning animate__animated animate__backInDown"> @Html.ActionLink("Ir a Inicio", "Index")</button>
+</div>
+
+
+
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
+
+        $(document).ready(function () {
+
+            var table = $('#mitabla').DataTable({
+                "ajax": {
+                    "url": '/Home/Tabla',
+                    "type": "get",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "EnrollmentId", "name": "EnrollmentId", "autoWidth": true },
+                    { "data": "StudentId", "name": "StudentId", "autoWidth": true },
+                    { "data": "CouserId", "name": "CouserId", "autoWidth": true },
+                    { "data": "LastName", "name": "LastName", "autoWidth": true },
+                    { "data": "FirstMidName", "name": "FirstMidName", "autoWidth": true },
+                    { "data": "Title", "name": "Title", "autoWidth": true }
+
+                ]
+
+
+            })
+        })
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

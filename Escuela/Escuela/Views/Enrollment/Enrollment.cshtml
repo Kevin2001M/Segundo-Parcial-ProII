@@ -1,0 +1,72 @@
+﻿@model List<Escuela.Dominio.Enrollment>;
+@{
+    ViewData["Title"] = "Tabla";
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<div class="form-group text-sm-center">
+
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="col-sm-4 ml-lg-auto">
+        <a class="btn btn-success d-block" asp-action="Create" asp-controller="Enrollment">Create +</a>
+    </div>
+
+    <div class="form-group text-sm-center">
+        <table id="mitabla" class="table table-striped table-hover">
+            <thead>
+                <tr>
+
+
+                    <th>
+                        EnrollmentId
+                    </th>
+                    <th>
+                        StudentId
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var i in Model)
+                {
+                <tr>
+                    <td>@i.EnrollmentId</td>
+                    <td>@i.StudentId</td>
+                    <td>@i.Course.Title</td>
+                    <td><a class="btn btn-warning" asp-action="Create" asp-route-id="@i.EnrollmentId">Update</a></td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

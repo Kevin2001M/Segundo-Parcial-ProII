@@ -1,0 +1,31 @@
+﻿@model Escuela.Dominio.Course;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+@using (Html.BeginForm("Create", "Cursos", FormMethod.Post))
+{
+
+<div class="form-group">
+    <label asp-for="Title" class=" font-weight-bold bg-transparent"></label>
+    <input required placeholder="Ingrese su titulo" asp-for="Title" class="form-control font-weight-light" />
+    @Html.ValidationMessageFor(c => c.Title, null, new { @class = "label label-danger" })
+</div>
+
+<div class="form-group">
+    <label asp-for="Credits" class=" font-weight-bold"></label>
+    <input required placeholder="Ingrese su credito" asp-for="Credits" class="form-control font-weight-light" />
+    @Html.ValidationMessageFor(c => c.Credits, null, new { @class = "label label-danger" })
+</div>
+
+
+    <br />
+    <div class="form-group">
+        <input type="submit" class="form-control btn btn-success" value="Save Course" />
+    </div>
+
+}

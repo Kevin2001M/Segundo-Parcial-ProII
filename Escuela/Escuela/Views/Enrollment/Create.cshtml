@@ -1,0 +1,48 @@
+﻿@model Escuela.Dominio.Enrollment;
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+@{
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    @using (Html.BeginForm("getInformationCombobox", "Enrollment", FormMethod.Post))
+    {
+
+        //<form action="" method="post">
+        //</form>
+        <div class="form-group">
+            <label asp-for="Course" class=" font-weight-bold bg-transparent"></label>
+            @Html.DropDownListFor(a => a.CourseId, new SelectList(ViewBag.estadoListCourse, "Value", "Text"), "Selecciona un curso", new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Course, null, new { @class = "label label-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Students" class=" font-weight-bold bg-transparent"></label>
+            @Html.DropDownListFor(a => a.StudentId, new SelectList(ViewBag.estadoListStudent, "Value", "Text"), "Selecciona un estudiante", new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Students, null, new { @class = "label label-danger" })
+
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" class="form-control btn btn-success" value="Save Enrollment" />
+        </div>
+    }
+
+    @section Scripts{
+
+        @{
+            <partial name="_ValidationScriptsPartial" />
+        }
+
+    }
+
+</body>
+</html>

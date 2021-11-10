@@ -1,0 +1,29 @@
+﻿@model Escuela.Dominio.Enrollment;
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+@{
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    @using (Html.BeginForm("getInformationCombobox", "Home", FormMethod.Post)) {
+
+        //<form action="" method="post">
+        //</form>
+
+    @Html.DropDownListFor(a => a.CourseId, new SelectList(ViewBag.estadoListCourse, "Value", "Text"), "Selecciona un curso", new { @class = "form-control" })
+    <br />
+    @Html.DropDownListFor(a => a.StudentId, new SelectList(ViewBag.estadoListStudent, "Value", "Text"), "Selecciona un estudiante", new { @class = "form-control" })
+    <br />
+    <input type="submit"/>
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning animate__animated animate__backInDown"> @Html.ActionLink("Ir a Inicio", "Index")</button>
+    </div>
+    }
+</body>
+</html>

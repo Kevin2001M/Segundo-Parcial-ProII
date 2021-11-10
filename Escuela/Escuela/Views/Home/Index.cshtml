@@ -1,0 +1,170 @@
+﻿@model List<Escuela.Dominio.Enrollment>;
+@{
+    ViewData["Title"] = "Home Page";
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+}
+
+<link rel="stylesheet"
+      href="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js>" />
+
+<script src="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous"></script>
+
+
+
+
+<body class="bg-light">
+    <div class="text-center">
+        <h1 class="display-4 animate__animated animate__backInDown text-primary">Welcome to my project</h1>
+    </div>
+    <br />
+
+    <p class="text-justify text-black-100">
+        Dentro de este proyecto se estaran haciendo multiples acciones de las cuales como guia se puede orientar desde el menu de navegacion de la parte superior del navegador. Si deseas ir a la primera parte favor dirigrise a <strong>Student</strong>
+        , si deseas ir a la parte de Cursos, favor dirigirse a <strong>Course</strong>, y tambien si quieres ir a la parte del Enrollment, favor dirigirse a <strong>Enrollment</strong>, espero que esta serie de pasos te ayude para una mejor experiencia dentro de mi aplicacion.
+    </p>
+</body>
+
+@*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+
+
+        <i class="fas fa-swatchbook fa-5x"></i>
+        <h1 class="wow animate__animated animate__jello" data-wow-duration="2s" data-wow-delay="5s">Insertar un Curso</h1>
+        <br />
+
+        <label class="animate__animated animate__bounce">Titulo</label>
+        <br />
+        @Html.TextBoxFor(m => m.Title)
+        <br />
+
+        <label class="animate__animated animate__bounce">Creditos</label>
+        <br />
+        @Html.TextBoxFor(m => m.Credits
+
+        <p class="animate__animated animate__rubberBand">
+            Por favor llenar todos los campos.
+        </p>
+
+        <input type="submit" class="btn btn-success" value="ENVIAR" />
+
+        <script src=https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.js></script>
+        <script type="text/javascript">
+            new WOW().init();
+
+        </script>
+    }*@
+
+@*<table id="mitabla" class="table-striped table-hover">
+
+        <thead>
+            <tr>
+                <th>
+                    Course Id
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Credits
+                </th>
+            </tr>
+        </thead>
+
+    </table>
+    @section scripts{
+
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+
+                var tabla = $('#mitabla').DataTable({
+                    "ajax": {
+                        "url": '/Home/GetAll',
+                        "type": "get",
+                        "datatype": "json"
+                    },
+                    "columns": [
+                        { "data": "courseId", "name": "courserId", "autoWidth": true },
+                        { "data": "title", "name": "title", "autoWidth": true },
+                        { "data": "credits", "name": "credits", "autoWidth": true }
+
+                    ]
+
+
+                })
+            })
+        </script>
+
+    }*@
+
+
+
+@*<table id="mitabla" class="table-striped table-hover">
+        <thead>
+            <tr>
+
+                <th>
+                    Id Enrollment
+                </th>
+                <th>
+                    Student Id
+                </th>
+                <th>
+                    Course Id
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    FirsMidName
+                </th>
+                <th>
+                    Curso al que pertenece
+                </th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+
+                    <td>@i.EnrollmentId</td>
+                    <td>@i.StudentId</td>
+                    <td>@i.Course.CouserId</td>
+                    <td>@i.Students.LastName</td>
+                    <td>@i.Students.FirstMidName</td>
+                    <td>@i.Course.Title</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>*@
+
+@*@section Scripts{
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
+
+            $(document).ready(function () {
+
+                var table = $('#mitabla').DataTable({
+
+
+                });
+
+            });
+        </script>
+    }*@
+
+
+
+
+
+
